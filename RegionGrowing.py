@@ -1,4 +1,4 @@
-import cv2, cv
+import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 import sys
@@ -7,7 +7,7 @@ import sys
 
 
 def on_mouse(event, x, y, flags, params):
-    if event == cv.CV_EVENT_LBUTTONDOWN:
+    if event == cv2.EVENT_LBUTTONDOWN:
         print 'Start Mouse Position: ' + str(x) + ', ' + str(y)
         s_box = x, y
         boxes.append(s_box)
@@ -84,7 +84,7 @@ if __name__ == '__main__':
     cv2.waitKey()
     print "Starting region growing based on last click"
     seed = boxes[-1]
-    cv2.imshow('input', region_growing(resized, seed))
+    cv2.imshow('output', region_growing(resized, seed))
     print "Done. Showing output now"
 
     cv2.waitKey()
